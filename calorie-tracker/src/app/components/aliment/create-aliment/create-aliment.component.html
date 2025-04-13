@@ -1,0 +1,56 @@
+<div class="form-container">
+    <form (ngSubmit)="createAliment()" #form="ngForm">
+        @if(message){
+            <p [ngClass]="isSuccess ? 'success' : 'error'">{{ message }}</p>
+        }
+        <div>
+            <span>Nom de l'aliment:</span>
+            <input [(ngModel)]="aliment.name" name="name" type="text" required>
+        </div>
+        <div>
+            <span>Categorie de l'aliment: </span>
+            <select [(ngModel)]="aliment.categorie" name="categorie" required>
+                <option value="">-- Choisir une catégorie --</option>
+                <option *ngFor="let c of categorie" [value]="c">{{ c }}</option>
+            </select>
+        </div>
+        <div>
+            <span>Unite: </span>
+            <select [(ngModel)]="aliment.unite" name="unite" required>
+                <option value="">-- Choisir une catégorie --</option>
+                <option *ngFor="let a of unite" [value]="a">{{ a }}</option>
+            </select>
+        </div>
+        <div>
+            <span>Calorie {{ aliment.unite ? ('par ' + aliment.unite) : '' }}:</span>
+            <input [(ngModel)]="aliment.caloriesPourUnite" name="caloriesPourUnite" type="text" required>
+        </div>
+        <div 
+            class="drop-zone" 
+            [class.drag-over]="isDraggingOver"
+            (drop)="onFileDrop($event)"
+            (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)">
+
+            <p>Glissez une image ici ou cliquez pour en choisir une</p>
+        
+            <input 
+            type="file" 
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            hidden 
+            #fileInput>
+            
+            <button type="button" (click)="fileInput.click()">Choisir une image</button>
+        
+            <div *ngIf="imagePreview">
+            <p>Aperçu :</p>
+            <img [src]="imagePreview" alt="Preview" class="preview-img">
+            </div>
+        </div>
+      
+        <div>
+            <button type="submit" class="submit-btn">Créer l'aliment</button>
+        </div>
+    </form>
+</div>

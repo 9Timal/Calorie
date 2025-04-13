@@ -1,0 +1,64 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+
+  justify-items: center;
+  align-items: start;
+}
+.card {
+  background: rgba(255, 255, 255, 0.15); // semi-transparent
+  backdrop-filter: blur(10px);          // effet de flou derrière la carte
+  border-radius: 1rem;                  // coins arrondis
+  padding: 1rem;
+  width: 100%;
+  max-width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // ombre légère
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px); // effet "saut" au survol
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); // ombre plus forte
+  }
+
+  img {
+    width: 100%;
+    max-height: 140px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  h3 {
+    margin-top: 0.75rem;
+    font-size: 1.1rem;
+    color: #707070;
+    font-weight: 600;
+  }
+}
+.card.fruits {
+  background-color: #ffdee9;
+}
+.card.légumes {
+  background-color: #d8f3dc;
+}
+.card.viande {
+  background-color: #f8d7da;
+}
+.card.poisson {
+  background-color: #cce5ff;
+}
+.card.produits-laitiers {
+  background-color: #f3e8ff;
+}
+.card.féculents {
+  background-color: #ffe9c9;
+}
+.card.épices {
+  background-color: #fff3cd;
+}
+.card.autre {
+  background-color: #e0e0e0;
+}

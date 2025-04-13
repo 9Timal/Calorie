@@ -1,0 +1,6 @@
+<div class="card-container" >
+  <div (click)="goToDetail(d.id!)" class="card" *ngFor="let d of aliments" [ngClass]="getClassFromCategorie(d.categorie)">
+    <img [src]="d.imageUrl" alt="{{ d.name }}" />
+    <h3>{{ d.name }}</h3>
+  </div>
+</div>

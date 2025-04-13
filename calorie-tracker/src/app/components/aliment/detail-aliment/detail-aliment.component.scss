@@ -1,0 +1,84 @@
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 3rem auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: #707070;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease-in-out;
+  
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+  
+      .name {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+  
+      .categorie,
+      .unite,
+      .calories {
+        font-size: 1.2rem;
+      }
+    }
+  
+    .image img {
+      max-width: 160px;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    &.error {
+      text-align: center;
+      color: #ff6b6b;
+      background-color: rgba(255, 0, 0, 0.1);
+  
+      img {
+        margin-top: 1rem;
+        max-width: 120px;
+      }
+    }
+  }
+  
+  .card.fruits {
+    background-color: #ffdee9;
+  }
+  .card.légumes {
+    background-color: #d8f3dc;
+  }
+  .card.viande {
+    background-color: #f8d7da;
+  }
+  .card.poisson {
+    background-color: #cce5ff;
+  }
+  .card.produits-laitiers {
+    background-color: #f3e8ff;
+  }
+  .card.féculents {
+    background-color: #ffe9c9;
+  }
+  .card.épices {
+    background-color: #fff3cd;
+  }
+  .card.autre {
+    background-color: #e0e0e0;
+  }
+  

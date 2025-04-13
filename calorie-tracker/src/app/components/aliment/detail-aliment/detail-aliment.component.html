@@ -1,0 +1,21 @@
+@if (aliment) {
+    <div class="card" [ngClass]="getClassFromCategorie(aliment.categorie)">
+      <div class="card-content">
+        <div class="info">
+          <div class="name">{{ aliment.name }}</div>
+          <div class="categorie">{{ aliment.categorie }}</div>
+          <div class="unite">{{ aliment.unite }}</div>
+          <div class="calories">{{ aliment.caloriesPourUnite }} kcal</div>
+        </div>
+        <div class="image">
+          <img [src]="aliment.imageUrl" [alt]="aliment.name">
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="card error">
+      <p>Pas d'aliment correspondant</p>
+      <img src="photodefautl.png" alt="not found">
+    </div>
+  }
+  

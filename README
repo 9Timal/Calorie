@@ -1,0 +1,97 @@
+# Projet Fullstack : Angular + Spring Boot + MySQL (Dockerisé)
+
+## Structure du projet
+
+/mon-projet/
+- TpCalorie/               → Backend Spring Boot (Java)
+  - Dockerfile
+  - target/TpCalorie-0.0.1-SNAPSHOT.jar
+- calorie-tracker/         → Frontend Angular
+  - Dockerfile
+  - dist/calorie-tracker/browser/
+  - nginx/default.conf
+- docker-compose.yml       → Démarrage de tous les services
+- README.txt                → Documentation du projet
+
+---
+
+## Lancer le projet avec Docker Compose
+
+### 1. Générer le `.jar` pour le backend
+
+Se placer dans le dossier backend :
+
+```bash
+cd TpCalorie
+./mvnw clean install
+# ou mvn clean install
+```
+
+---
+
+### 2. Générer le build Angular
+
+Se placer dans le dossier Angular :
+
+```bash
+cd calorie-tracker
+npm install
+ng build --configuration production
+```
+
+---
+
+### 3. Lancer toute l’application
+
+Depuis la racine du projet :
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## Accès à l’application
+
+- Frontend : http://localhost:4200
+- Backend API : http://localhost:8080
+- MySQL : localhost:3306 (via MySQL Workbench ou autre client)
+
+---
+
+## Paramètres de la base de données
+
+- Nom de la BDD : calorie_tracker_Bdd
+- Utilisateur : user
+- Mot de passe : user
+- URL JDBC : jdbc:mysql://mysql-db:3306/calorie_tracker_Bdd
+
+---
+
+## Stack technique
+
+- Spring Boot 3 (Java 17)
+- Angular 17
+- MySQL 8
+- Docker + Docker Compose
+- NGINX pour servir l’Angular en prod
+
+---
+
+## Astuce : reconstruire un seul service
+
+Par exemple, pour rebuild uniquement le frontend :
+
+```bash
+docker-compose up --build frontend
+```
+
+---
+
+## A faire pour un nouveau projet
+
+- Changer `spring.application.name` dans `application.properties`
+- Adapter les noms de dossier et `dist/` dans le Dockerfile Angular
+- Vérifier les routes dans `nginx/default.conf`
+- Regénérer le `.jar` à chaque modif backend
+
